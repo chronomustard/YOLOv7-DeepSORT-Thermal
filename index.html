@@ -6,15 +6,15 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Documentation Template</title>
+    <title>YOLOv7 DeepSORT Thermal ReId Documentation</title>
+    <link rel="icon" type="image/x-icon" href="logo.png">
     <meta name="description" content="A simple HTML/CSS DocumentationTemplate">
     <meta name="author" content="Carlos Yllobre">
 
-    <link rel="stylesheet" href="style.css?">
+    <link rel="stylesheet" href="web/style.css">
     <link href="https://fonts.googleapis.com/css2?family=Noto+Serif:wght@400;700&family=Open+Sans:ital,wght@0,400;0,700;1,600&display=swap" rel="stylesheet">
     
     <script defer src="https://use.fontawesome.com/releases/v5.7.2/js/all.js" integrity="sha384-0pzryjIRos8mFBWMzSSZApWtPl/5++eIfzYmTgBBmXYdhvxPc+XcFEk+zJwDgWbP" crossorigin="anonymous"></script>
-
 
 </head>
 
@@ -22,9 +22,9 @@
 
     <div class="navbar clear nav-top">
         <div class="row content">
-            <a href="#"><img class="logo" style="height: 40px; width:auto;" src="logo.png"></a>
-            <a class="right" style="text-decoration: underline;" href="#"><i class="fas fa-book"></i>&nbsp; Documentation</a>
-            <a class="right" href="mailto:rickypapudi@gmail.com" target="_blank"><i class="fas fa-paper-plane"></i>&nbsp; yourapp@email.com</a>
+            <a href="#"><img class="logo" style="height: 47px; width:auto;" src="logo.png"></a>
+            <a class="right" href="#"><i class="fas fa-book"></i>&nbsp; Documentation</a><br>
+            <a class="right" href="mailto:rickypapudi@gmail.com" target="_blank"><i class="fas fa-paper-plane"></i>&nbsp; rickypapudi@gmail.com</a>
         </div>
     </div>
 
@@ -37,7 +37,7 @@
                 
                 <a class="section" href="#">Released Versions</a>
                 <a class="section" href="#">About this App</a>
-                <a class="section" href="#technology">Technology</a>
+                <a class="section" href="#technology">Architecture</a>
 
                 <div class="divider left"></div>
 
@@ -48,7 +48,7 @@
 
                 <div class="divider left"></div>
 
-                <a class="title" href="#basicfeatures">Basic Features</a>
+                <a class="title" href="#basicfeatures">YOLOv7 Custom Dataset Transfer Learning</a>
 
                 <a class="section" href="#basicfeatures">Feature 1</a>
                 <a class="section" href="#basicfeatures">Feature 2</a>
@@ -58,7 +58,7 @@
 
                 <div class="divider left"></div>
 
-                <a class="title" href="#advanced">Advanced Features</a>
+                <a class="title" href="#advanced">DeepSORT Custom Dataset Transfer Learning</a>
 
                 <a class="section" href="#advanced">Feature A</a>
                 <a class="section" href="#featureb">Feature B</a>
@@ -81,8 +81,6 @@
 
             <div class="right-col">
             
-
-
                 <h1 >Thermal Reidentification using YOLOv7 and DeepSORT</h1>
                 
                 <p>This documentation serves as a guide for developers on the integration of YOLOv7 and DeepSORT for Thermal Reidentification.</p> 
@@ -91,156 +89,131 @@
              
                 <p><b>Pretrained-base v0.1 </b> This is the first release of the pretrained weight for thermal datasets.</p>
             
-                <h2 id="technology">Technology</h2>
-                
-                <p id="gettingstarted">This tracker is built with YOLO and DeepSORT on Python 3.7.16. The dependencies will be listed inside the requirements.txt from the repo. </p>
+                <h2 id="technology">Architecture</h2>
+                <img class="img-full" src="pict/algflowchart.png" alt="algorithm flowchart">
+                <p id="gettingstarted">This thermal ReId algorithm is built with YOLO and DeepSORT on Python 3.7.16. The dependencies will be listed inside the requirements.txt from the repo. </p>
                  
         <div class="divider" style="width:24%; margin:30px 0;"></div>
 
                 <h1>Getting Started</h1>
 
+                <h2>Minimum Requirements</h2>
+                
+                <p>As of February 2024, a minimum GPU that supports CUDA version of 11.6 is needed for this</p>
+
                 <h2>Installing Conda</h2>
                 
-                <p>To ease the configuration of Python and it's dependencies, we will use <a href="https://docs.conda.io/projects/conda/en/latest/user-guide/install/index.html#regular-installation">Conda</a> for this.</p> 
+                <p>To ease the configuration of Python and it's dependencies, we will use <a target="_blank" href="https://docs.conda.io/projects/conda/en/latest/user-guide/install/">Conda</a> for this.</p> 
 
-                <p id="installingapp"><b>Important:</b> The virtual environment used can be downloaded <a href="">here</a>.</p>
-                
+                <p id="installingapp"><b>Important:</b> The virtual environment used can be downloaded <a target="_blank" href="https://github.com/chronomustard/YOLOv7-DeepSORT-Thermal/tree/main/env">here</a>.</p>
                 
                 <h2>Configuring Tensorflow and PyTorch</h2>
                 
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-                
-                   <ol>
-                    <li>
-                     The first thing you need to do to install this app.
-                    </li>
-                    <br>
-                    <li>
-                    The second thing you need to do to install this app.
-                    </li>
-                    <br id="openingapp">
-                    <li>
-                     The app is installed now.
-                    </li>
-                    <br>
-                </ol>
-                
+                <p>To allow the use of Tensorflow and PyTorch, respective CUDA and Cudatoolkit is required. 
+                    Please refer to these respective guides for <a href="https://docs.nvidia.com/cuda/cuda-installation-guide-microsoft-windows/index.html">CUDA (Windows)</a>
+                    , <a href="https://docs.nvidia.com/cuda/cuda-installation-guide-linux/index.html">CUDA (Linux)</a>, <a href="https://pytorch.org/get-started/previous-versions/ ">
+                        Tensorflow
+                    </a>, and <a href="https://pytorch.org/get-started/previous-versions/ ">Pytorch</a>. 
+                    <br><br>For reference, in 
+                    this project, I used tensorflow 1.15, pytorch 1.13+cu116 with torchaudio and torchvision. 
+                    Please also make sure that the environment variables are correctly configured.</p>
+                               
 
-                <h2>Configuring CUDA and Cudatoolkit</h2>
+                <h2>Datasets and Pretrained Weights</h2>
                 
-                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                  <p>A market1501-based custom dataset compiled from ThermalDB, RegDB, Market1501, and my own IndoThermal is used on this project. The pretrained weights can be accessed from this <a href="">url</a>.
+                <br><br>
+                The weights are pre-trained in market1501-based COCO dataset format and 
+                then fine-tuned to a market1501-based custom thermal dataset with 9360 pictures and 751 classes.
+                <br><br>
+                To train the YOLOv7, roboflow is used to ease the dataset format preprocessing required for the model, which then can be trained in Google Colab or locally. In this walktrough, Google Colab will be used to train the YOLO model.
+                <br><br>
+                To train the DeepSORT tracker, please first make sure that the conda environment, CUDA, tensorflow, and pytorch configuration in your system is configured correctly.
+                Since this walktrough will train the DeepSORT tracker locally, please refer to guides given previously. 
                 
-                 <ol>
-                    <li>
-                     The first thing you need to do to open this app.
-                    </li>
-                    <br>
-                    <li>
-                     The second thing you need to do to open this app.
-                    </li>
-                    <br>
-                    <li>
-                      The third thing you need to do to open this app.
-                    </li>
-                    <br>
-                    <li>
-                     Open the app and start using it!
-                    </li>
-                    <br>
-                </ol>
-                
-                <p id="basicfeatures">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-
-                    
+                </p>
+                                    
             <div class="divider" style="width:24%; margin:30px 0;"></div>
             
             
-                <h1>Basic Features</h1>
+                <h1>YOLOv7 Custom Dataset Transfer Learning</h1>
 
-                <h2>Feature 1</h2>
+                <h2>Training on custom dataset</h2>
                 
-                <p id="basicfeatures">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
-                Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                <p id="basicfeatures">These <a target="_blank" href="https://blog.roboflow.com/yolov7-custom-dataset-training-tutorial/">guides</a> can be used to train YOLOv7 with custom dataset
+                . To simplify, you can use this <a href="">notebook</a> in my repo for training YOLO. For this project,
+                I used <a href="https://roboflow.com/">roboflow</a> to simplify image annotation and deployment to 
+                google colab for training. <br><br>
+                Note that for training the model in the given notebook, you will need to change this part of the code,
+                
+                <pre id="myPreTag">
+!pip install roboflow
+
+from roboflow import Roboflow
+rf = Roboflow(api_key="your api key")
+project = rf.workspace("your workspace").project("your project")
+dataset = project.version("your version").download("your project")</pre><br>
+                with your given code snippet in your <a href="https://roboflow.com/">roboflow</a> project
                 </p>
                 
-                <h2>Feature 2</h2>
+                <h2>Validation</h2>
                 
                 <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                For validation and evaluation purposes, the algorithm will produce several evaluation parameters. You can see
+                these evaluation parameters will training the algorithm in the form of text and graph when finished. One of these
+                evaluation parameters is these graphs,
                 <br><br>
-                <b>Explanation 1</b> Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                <br>
-                <br>
-                <b>Explanation 2</b> Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                <br>
-                <br>
-                <b>Explanation 3</b> Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                <br>
-                <br id="feature3">
-                <b>Explanation 4</b> Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                <img class="img-full" src="pict/yoloTrainValResult.png" alt="Yolo Training and Validation Result">
                 </p>
                 
-                <h2>Feature 3</h2>
+                <h2>Standalone Testing and Inference</h2>
                 
                 <p>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                <br id="feature4">
-             Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                  If you want to do standalone image detection, this <a href="https://learnopencv.com/yolov7-object-detection-paper-explanation-and-inference/">guide</a> can be used to test the standalone image detection algorithm of YOLO.
+                But, in order to do object reidentification, a tracker algorithm with identification support is needed. This concludes to the use of DeepSORT for later inference.
                 </p>
                 
-                <h2>Feature 4</h2>
+                <h2>Save the Weight for Later Reidentification Inference with DeepSORT</h2>
                 
                 <p>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                  <br>
-                  <br>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                 <br>
-                 <br id="feature5">
-                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                </p>
-                
-                
-                <h2>Feature 5</h2>
-                
-                <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. 
-                <br>
-                <br>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                <br>
-                </p>
-                
-        
-                
-               <h2>Feature 5</h2>
-                 
-               <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. 
-                <br id="advanced">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                  After training the YOLOv7 model, you will obtain several weight containing folders inside runs/detect/trainX, with X representing the version of the weight, directory in your YOLO folder. 
+                  These folders will also be accompanied with the evaluation parameters for each weight folders. Therefore, choose the best result according
+                  to your preference since this will highly impact the performance of the thermal reidentification algorithm later.
+
+                  <br><br>
+
+                  This is the example of the weight files and the weight folders obtained after training YOLOv7,
+                  <br><br>
+                  <img class="img-full" src="pict/yoloDirectory.png" alt="Yolo Training Files and Weight Example">
+                  <img class="img-full" src="pict/yoloDirectory1.png" alt="Yolo Training Files and Weight Example">
                 </p>
                 
                 <div class="divider" style="width:24%; margin:30px 0;"></div>
                 
-                <h1>Advanced Features</h1>
+                <h1>DeepSORT Weight Custom Dataset Transfer Learning</h1>
+
+                <p>
+                    For the tracker, this project uses the DeepSORT model with PyTorch. It is based on this <a href="https://github.com/ZQPei/deep_sort_pytorch">repo</a> by <a href="https://github.com/ZQPei">ZQPei</a>.
+                </p>
                 
-                <h2>Feature A</h2>
+                <h2>Environment Setup</h2>
                 
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
-                Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor 
-                in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. 
-                <br>
-                <br id="featureb">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                <p>
+                    Make sure that the conda environment <a target="_blank" href="https://github.com/chronomustard/YOLOv7-DeepSORT-Thermal/tree/main/env">here</a> is downloaded.
+                    Create an environment from the .yml file using this code,
+                    <pre id="myPreTag1">
+conda env create -f env-torch1131.yml</pre>
+<br>
+This will create an environment with the name torch1131 in your conda virtual environment. This conda yml file already includes tensorflow, pytorch, and other related dependencies for training the DeepSORT tracker. <br><br>
+You can also install the dependencies using the requirement.txt provided in the <a href="https://github.com/chronomustard/YOLOv7-DeepSORT-Thermal/tree/main">Github</a> repo.
+                </p>
                    
                 
-                <h2>Feature B</h2>
+                <h2>Dataset Setup</h2>
                 
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                <br>
-                <br id="featurec">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                <p>
+
+                </p>
                 
                 
                 <h2>Feature C</h2>
@@ -321,6 +294,8 @@
     </div>
 
 
+    
+    <script src="web/index.js"></script>
 </body>
 
 </html>
