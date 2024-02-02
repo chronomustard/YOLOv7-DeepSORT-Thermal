@@ -83,19 +83,15 @@
             
 
 
-                <h1 >Introduction</h1>
+                <h1 >Thermal Reidentification using YOLOv7 and DeepSORT</h1>
                 
-                <p>This documentation serves as an authoritative guide for researchers, developers, and enthusiasts seeking a profound understanding of the integration of YOLOv7, DeepSORT, and thermal imaging technologies for robust object tracking.</p> 
+                <p>This documentation serves as a guide for developers on the integration of YOLOv7 and DeepSORT for Thermal Reidentification.</p> 
             
                 <h2>Released Versions:</h2>
              
                 <p><b>Pretrained-base v0.1 </b> This is the first release of the pretrained weight for thermal datasets.</p>
-
-                <h2>About this Tracker</h2>
-                
-                <p id="technology"> Conventional object detection often encounters challenges in recognizing obstructed or occluded objects, but the utilization of Kalman filters and DeepSORT tracking methods has offered significant solutions. Similarly, object detection methods such as YOLO and its evolution, YOLOv7, have demonstrated notable improvements in object detection accuracy. The fusion of YOLOv7 object detection with DeepSORT object tracking techniques has yielded an effective object re-identification system. However, implementing multi-object tracking (MOT) with RGB cameras commonly faces limitations in low-light conditions. Thus, the focus of this study revolves around developing a YOLOv7 and DeepSORT-based MOT system capable of operating under minimal lighting conditions. Through the use of diverse datasets, variations, and converting color images to grayscale, the resulting models have exhibited significant improvements in training and validation accuracy. Evaluations of the thermal recognition MOT system employing YOLOv7 and DeepSORT have shown the system's capability to produce videos with human identification, despite occasional failures in object re-identification. These limitations could potentially be overcome by enriching datasets and enhancing camera image resolution. Nevertheless, the system has proven its capacity for thermal recognition multi-object tracking, supported by model validation and tests on diverse videos. In conclusion, this study affirms that the thermal recognition MOT system using YOLOv7 and DeepSORT can operate with specially curated datasets, yielding highly accurate training models and successful object tracking in tested videos.</p>
-
-                <h2>Technology</h2>
+            
+                <h2 id="technology">Technology</h2>
                 
                 <p id="gettingstarted">This tracker is built with YOLO and DeepSORT on Python 3.7.16. The dependencies will be listed inside the requirements.txt from the repo. </p>
                  
@@ -105,9 +101,9 @@
 
                 <h2>Installing Conda</h2>
                 
-                <p>To ease the configuration of Python and it's dependencies, we will use Conda for this. To start .</p> 
+                <p>To ease the configuration of Python and it's dependencies, we will use <a href="https://docs.conda.io/projects/conda/en/latest/user-guide/install/index.html#regular-installation">Conda</a> for this.</p> 
 
-                <p id="installingapp"><b>Important:</b> This line is for an important information.</p>
+                <p id="installingapp"><b>Important:</b> The virtual environment used can be downloaded <a href="">here</a>.</p>
                 
                 
                 <h2>Configuring Tensorflow and PyTorch</h2>
