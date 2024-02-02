@@ -6,7 +6,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>YOLOv7 DeepSORT Thermal ReId Documentation</title>
+    <title>YOLOv7 DeepSORT ReId Documentation</title>
     <link rel="icon" type="image/x-icon" href="logo.png">
     <meta name="description" content="A simple HTML/CSS DocumentationTemplate">
     <meta name="author" content="Carlos Yllobre">
@@ -33,47 +33,48 @@
 
             <div class="sidepanel">
 
-                <a class="title" href="#">Introduction</a>
+                <a class="title" href="#intro">Introduction</a>
                 
-                <a class="section" href="#">Released Versions</a>
-                <a class="section" href="#">About this App</a>
-                <a class="section" href="#technology">Architecture</a>
+                <a class="section" href="#released">Released Versions</a>
+                <a class="section" href="#arch">Architecture</a>
 
                 <div class="divider left"></div>
 
-                <a class="title" href="#gettingstarted">Getting Started</a>
+                <a class="title" href="#getting">Getting Started</a>
 
-                <a class="section" href="#installingapp">Installing the App</a>
-                 <a class="section" href="#openingapp">Opening the App</a>
-
-                <div class="divider left"></div>
-
-                <a class="title" href="#basicfeatures">YOLOv7 Custom Dataset Transfer Learning</a>
-
-                <a class="section" href="#basicfeatures">Feature 1</a>
-                <a class="section" href="#basicfeatures">Feature 2</a>
-                <a class="section" href="#feature3">Feature 3</a>
-                <a class="section" href="#feature3">Feature 4</a>
-                <a class="section" href="#feature3">Feature 5</a>
+                <a class="section" href="#req">Minimum Requirements</a>
+                <a class="section" href="#conda">Installing Conda</a>
+                <a class="section" href="#tfpytorch">Configuring Tensorflow and PyTorch</a>
+                <a class="section" href="#datasets">Datasets and Pretrained Weights</a>
 
                 <div class="divider left"></div>
 
-                <a class="title" href="#advanced">DeepSORT Custom Dataset Transfer Learning</a>
+                <a class="title" href="#yolo">YOLOv7 Custom Dataset Transfer Learning</a>
 
-                <a class="section" href="#advanced">Feature A</a>
-                <a class="section" href="#featureb">Feature B</a>
-                <a class="section" href="#featurec">Feature C</a>
-                <a class="sub-section" href="#featurec1">Feature C.1</a>
-                <a class="sub-section" href="#featurec2">Feature C.2</a>
-                <a class="section" href="#featured">Feature D</a>
+                <a class="section" href="#trainyolo">Training on custom dataset</a>
+                <a class="section" href="#evalyolo">Training Evaluation</a>
+                <a class="section" href="#standaloneyolo">Standalone Testing and Inference</a>
+                <a class="section" href="#weightyolo">Save the Weight for Later Reidentification Inference with DeepSORT</a>
 
                 <div class="divider left"></div>
 
-                <a class="title" href="#accesibility">Accesibility</a>
+                <a class="title" href="#deepsort">DeepSORT Custom Dataset Transfer Learning</a>
+
+                <a class="section" href="#setupdeepsort">Environment Setup</a>
+                <a class="section" href="#datasetdeepsort">Dataset Setup</a>
+                <a class="section" href="#traindeepsort">Training the DeepSORT Tracker</a>
+                <a class="section" href="#evaldeepsort">Training Evaluation</a>
+                <a class="section" href="#weightdeepsort">Save the DeepSORT Tracker Weight</a>
 
                 <div class="divider left"></div>
 
-                <a class="title" href="#moreinfo">More Info</a>
+                <a class="title" href="#reid">DeepSORT-YOLOv7 Reidentification</a>
+                <a class="section" href="#configreid">DeepSORT-YOLOv7 ReId Configuration</a>
+                <a class="section" href="#inferreid">Reidentification Inference</a>
+
+                <div class="divider left"></div>
+
+                <a class="title" href="#references">References</a>
             
              <div class="space double"></div>
 
@@ -81,33 +82,33 @@
 
             <div class="right-col">
             
-                <h1 >Thermal Reidentification using YOLOv7 and DeepSORT</h1>
+                <h1 id="intro">Reidentification using YOLOv7 and DeepSORT</h1>
                 
-                <p>This documentation serves as a guide for developers on the integration of YOLOv7 and DeepSORT for Thermal Reidentification.</p> 
+                <p>This documentation serves as a guide for developers on the integration of YOLOv7 and DeepSORT for Reidentification Task.</p> 
             
-                <h2>Released Versions:</h2>
+                <h2 id="released">Released Versions:</h2>
              
                 <p><b>Pretrained-base v0.1 </b> This is the first release of the pretrained weight for thermal datasets.</p>
             
-                <h2 id="technology">Architecture</h2>
+                <h2 id="arch">Architecture</h2>
                 <img class="img-full" src="pict/algflowchart.png" alt="algorithm flowchart">
-                <p id="gettingstarted">This thermal ReId algorithm is built with YOLO and DeepSORT on Python 3.7.16. The dependencies will be listed inside the requirements.txt from the repo. </p>
+                <p>This ReId algorithm is built with YOLO and DeepSORT on Python 3.7.16. The dependencies will be listed inside the requirements.txt from the repo. </p>
                  
         <div class="divider" style="width:24%; margin:30px 0;"></div>
 
-                <h1>Getting Started</h1>
+                <h1 id="getting">Getting Started</h1>
 
-                <h2>Minimum Requirements</h2>
+                <h2 id="req">Minimum Requirements</h2>
                 
                 <p>As of February 2024, a minimum GPU that supports CUDA version of 11.6 is needed for this</p>
 
-                <h2>Installing Conda</h2>
+                <h2 id="conda">Installing Conda</h2>
                 
                 <p>To ease the configuration of Python and it's dependencies, we will use <a target="_blank" href="https://docs.conda.io/projects/conda/en/latest/user-guide/install/">Conda</a> for this.</p> 
 
-                <p id="installingapp"><b>Important:</b> The virtual environment used can be downloaded <a target="_blank" href="https://github.com/chronomustard/YOLOv7-DeepSORT-Thermal/tree/main/env">here</a>.</p>
+                <p><b>Important:</b> The virtual environment used can be downloaded <a target="_blank" href="https://github.com/chronomustard/YOLOv7-DeepSORT-Thermal/tree/main/env">here</a>.</p>
                 
-                <h2>Configuring Tensorflow and PyTorch</h2>
+                <h2 id="tfpytorch">Configuring Tensorflow and PyTorch</h2>
                 
                 <p>To allow the use of Tensorflow and PyTorch, respective CUDA and Cudatoolkit is required. 
                     Please refer to these respective guides for <a href="https://docs.nvidia.com/cuda/cuda-installation-guide-microsoft-windows/index.html">CUDA (Windows)</a>
@@ -119,7 +120,7 @@
                     Please also make sure that the environment variables are correctly configured.</p>
                                
 
-                <h2>Datasets and Pretrained Weights</h2>
+                <h2 id="datasets">Datasets and Pretrained Weights</h2>
                 
                   <p>A market-1501-based custom dataset compiled from ThermalDB, RegDB, market-1501, and my own IndoThermal is used on this project. The pretrained weights can be accessed from this <a href="">url</a>.
                 <br><br>
@@ -130,17 +131,16 @@
                 <br><br>
                 To train the DeepSORT tracker, please first make sure that the conda environment, CUDA, tensorflow, and pytorch configuration in your system is configured correctly.
                 Since this walktrough will train the DeepSORT tracker locally, please refer to guides given previously. 
-                
                 </p>
                                     
             <div class="divider" style="width:24%; margin:30px 0;"></div>
             
             
-                <h1>YOLOv7 Custom Dataset Transfer Learning</h1>
+                <h1 id="yolo">YOLOv7 Custom Dataset Transfer Learning</h1>
 
-                <h2>Training on custom dataset</h2>
+                <h2 id="trainyolo">Training on custom dataset</h2>
                 
-                <p id="basicfeatures">These <a target="_blank" href="https://blog.roboflow.com/yolov7-custom-dataset-training-tutorial/">guides</a> can be used to train YOLOv7 with custom dataset
+                <p>These <a target="_blank" href="https://blog.roboflow.com/yolov7-custom-dataset-training-tutorial/">guides</a> can be used to train YOLOv7 with custom dataset
                 . To simplify, you can use this <a href="">notebook</a> in my repo for training YOLO. For this project,
                 I used <a href="https://roboflow.com/">roboflow</a> to simplify image annotation and deployment to 
                 google colab for training. <br><br>
@@ -156,7 +156,7 @@ dataset = project.version("your version").download("your project")</pre><br>
                 with your given code snippet in your <a href="https://roboflow.com/">roboflow</a> project
                 </p>
                 
-                <h2>Validation</h2>
+                <h2 id="evalyolo">Training Evaluation</h2>
                 
                 <p>
                 For validation and evaluation purposes, the algorithm will produce several evaluation parameters. You can see
@@ -166,19 +166,19 @@ dataset = project.version("your version").download("your project")</pre><br>
                 <img class="img-full" src="pict/yoloTrainValResult.png" alt="Yolo Training and Validation Result">
                 </p>
                 
-                <h2>Standalone Testing and Inference</h2>
+                <h2 id="standaloneyolo">Standalone Testing and Inference</h2>
                 
                 <p>
                   If you want to do standalone image detection, this <a href="https://learnopencv.com/yolov7-object-detection-paper-explanation-and-inference/">guide</a> can be used to test the standalone image detection algorithm of YOLO.
                 But, in order to do object reidentification, a tracker algorithm with identification support is needed. This concludes to the use of DeepSORT for later inference.
                 </p>
                 
-                <h2>Save the Weight for Later Reidentification Inference with DeepSORT</h2>
+                <h2 id="weightyolo">Save the Weight for Later Reidentification Inference with DeepSORT</h2>
                 
                 <p>
-                  After training the YOLOv7 model, you will obtain several weight containing folders inside runs/detect/trainX, with X representing the version of the weight, directory in your YOLO folder. 
+                  After training the YOLOv7 model, you will obtain several weight with the .pt format. These weights will be contained in folders inside runs/detect/trainX, with X representing the version of the weight, directory in your YOLO folder. 
                   These folders will also be accompanied with the evaluation parameters for each weight folders. Therefore, choose the best result according
-                  to your preference since this will highly impact the performance of the thermal reidentification algorithm later.
+                  to your preference since this will highly impact the performance of the reidentification algorithm later.
 
                   <br><br>
 
@@ -190,13 +190,13 @@ dataset = project.version("your version").download("your project")</pre><br>
                 
                 <div class="divider" style="width:24%; margin:30px 0;"></div>
                 
-                <h1>DeepSORT Weight Custom Dataset Transfer Learning</h1>
+                <h1 id="deepsort">DeepSORT Weight Custom Dataset Transfer Learning</h1>
 
                 <p>
                     For the tracker, this project uses the DeepSORT model with PyTorch. It is based on this <a href="https://github.com/ZQPei/deep_sort_pytorch">repo</a> by <a href="https://github.com/ZQPei">ZQPei</a>.
                 </p>
                 
-                <h2>Environment Setup</h2>
+                <h2 id="setupdeepsort">Environment Setup</h2>
                 
                 <p>
                     Make sure that the conda environment <a target="_blank" href="https://github.com/chronomustard/YOLOv7-DeepSORT-Thermal/tree/main/env">here</a> is downloaded.
@@ -205,11 +205,11 @@ dataset = project.version("your version").download("your project")</pre><br>
 conda env create -f env-torch1131.yml</pre>
 <br>
 This will create an environment with the name torch1131 in your conda virtual environment. This conda yml file already includes tensorflow, pytorch, and other related dependencies for training the DeepSORT tracker. <br><br>
-You can also install the dependencies using the requirement.txt provided in the <a href="https://github.com/chronomustard/YOLOv7-DeepSORT-Thermal/tree/main">Github</a> repo.
+You can also install the dependencies using pip from the requirement.txt provided in the <a href="https://github.com/chronomustard/YOLOv7-DeepSORT-Thermal/tree/main">Github</a> repo.
                 </p>
                    
                 
-                <h2>Dataset Setup</h2>
+                <h2 id="datasetdeepsort">Dataset Setup</h2>
                 
                 <p>
                     In order to train the DeepSORT model, the dataset needs to be cropped in the market-1501 format. You can refer to this <a href="https://openaccess.thecvf.com/content_iccv_2015/html/Zheng_Scalable_Person_Re-Identification_ICCV_2015_paper.html">research paper</a>
@@ -220,9 +220,7 @@ the train and test folders are the same, this implies that the PyTorch DeepSORT 
 classification-based task for each class inside the test folder.
 <br><br>
 The frames that are used to train and test DeepSORT differs from YOLO. The data to train DeepSORT are cropped by its bounding box.
- Meanwhile, the data to train YOLO are not cropped by its bounding box. 
- <br><br>
- To ease the naming and data preprocessing of DeepSORT training, this project also provides some scripts to create a market-1501-based folder and crop pictures by the bounding box in the YOLO dataset format. My <a href="https://github.com/chronomustard/YOLOv7-DeepSORT-Thermal/tree/main">repo</a> can be used to access these scripts.
+ Meanwhile, the data to train YOLO are not cropped by its bounding box.
  <br><br>
  The market-1501 dataset folder formatting is as followed,
  <br><br>
@@ -230,74 +228,150 @@ The frames that are used to train and test DeepSORT differs from YOLO. The data 
  <img class="img-full" src="pict/deepSORTformat.png" alt="">
  <br><br>
  <b>In the test folder, it is recommended to only put 1 picture.</b> On the other hand, in the train folder, you can put as picture as you want.
-                </p>
+<br><br>
+To ease the naming and data preprocessing of DeepSORT training, this project also provides some scripts to create a market-1501-based folder and crop pictures by the bounding box in the YOLO dataset format. My <a href="https://github.com/chronomustard/YOLOv7-DeepSORT-Thermal/tree/main/deepSORT_preprocessing_script">repo</a> can be used to access these scripts.
+The steps to format the dataset for training DeepSORT using the scripts provided is as followed,
+<ol>
+   <li>If you wnat to convert the dataset from YOLO picture format to DeepSORT picture format, use the YOLOtoDeepSORTcropper.py script.</li>
+   <li>Create the market-1501-based dataset folder using marketFolderFormatter.py script in desired path.</li>
+   <li>Populate the pictures with the same object inside all the classes inside the train folder. For example, all the pictures of person 1 are put inside the 1st class, then the pictures of person 2 are put inside the 2nd class, etc.</li>
+   <li>Execute trainTestMarketSplitter.py script to split the train and test folders.</li>
+   </ol>        
+</p>
                 
                 
-                <h2>Feature C</h2>
+                <h2 id="traindeepsort">Training the DeepSORT Tracker</h2>
                   
-                <p id="featurec1">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                <p>
+                    To train this tracker, access the training/deepsort folder. To train the DeepSORT model, you need to specify the dataset directory by customizing the --data-dir by running this code snippet in the CLI.
+                    <pre>
+cd DEEP_SORT/DEEP DIRECTORY
+conda activate torch1131
+train.py --data-dir="MARKET-1501-BASED DATASET"</pre>
+                </p>
                   
                  
-                <h2>Feature C.1</h2>
+                <h2 id="evaldeepsort">Training Evaluation</h2>
 
                 <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit:
+                    If all the configuration and data are configured correctly, you will obtain this graph,
+                    <br><br>
+                    <img class="img-full" src="pict/deepSORTtrainResult.jpg" alt="">
+                    <br>
+                    It is important that the loss and top1err of both train and val are approaching 0. Otherwise, there is something wrong with your setup (usually it's the dataset configuration, make sure that there are no duplicate images for different train and test folder).
                 </p>
-                
-                   <ul>
-                    <li>
-                    <b>Point 1</b> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                    <br>
-                    <li>
-                    <b>Point 2</b> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.
-                    </li>
-                    <br id="featurec2">
-                     <li>
-                    <b>Point 3</b> Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                    <br>
+
                 </ul>
                    
-                 <h2>Feauture C.2</h2>
+                 <h2 id="weightdeepsort">Save the DeepSORT Tracker Weight</h2>
                    
-                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                    <br>
-                    <br>
-                     <b>Important:</b> Please notice that lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                    <br>
-                    <br>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                 </p>
-                  
-                  
-                  <h2>Feature D</h2>
-                  
-                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                  
-                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                  <br>
-                  <br id="accesibility">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                  
-                  
+                 <p>
+                    After training the DeepSORT model, you will obtain a weight in the format of .t7 inside the deep_sort/deep/checkpoint folder of the DeepSORT PyTorch directory. This weight will then be passed along with the .pt YOLO weight that we have obtained beforehand.
+                 <br><br>
+                 <img id="accesibility" class="img-full" src="pict/deepSORTweight.png" alt="">
+                </p>
+                                    
                 <div class="divider" style="width:24%; margin:30px 0;"></div>
                    
-                   <h1>Accessibility</h1>
+                   <h1 id="reid">DeepSORT-YOLOv7 Reidentification</h1>
+                   <h2 id="configreid">DeepSORT-YOLOv7 ReId Configuration</h2>
+                   <p>
+                    The DeepSORT-YOLOv7 reidentification program is provided <a href="">here</a>. But, in order to run the algorithm, you need access and download this <a href="https://drive.google.com/drive/folders/1lbdhDOpZ3475eekVQ2q2e7rsli2dffll?usp=sharing">folder</a>.
+                    For the sake of simplification, you can open the program via Google Colab, upload the folder to your Google Drive, and connect your Google Colab to Google Drive.
+                <br><br>
+                You also need to configure the DeepSORT checkpoint folder and DeepSORT config yaml file inside the DeepSORT-YOLOv7 Reidentification folder that we downloaded.
+                The checkpoint folder can be accessed in yolov7/deep_sort/deep/checkpoint directory. Copy the DeepSORT checkpoint inside the folder. 
+                <br><br>
+                Meanwhile, the config file can be accessed in yolov7/deep_sort_pytorch/configs directory with the name deep_sort.yaml.
+                For this config file, change the
+                <pre>
+DEEPSORT:
+REID_CKPT: "deep_sort_pytorch/deep_sort/deep/checkpoint/best-ckpt.t7"
+MAX_DIST: 0.165
+MIN_CONFIDENCE: 0.4125
+NMS_MAX_OVERLAP: 0.525
+MAX_IOU_DISTANCE: 0.725
+MAX_AGE: 70
+N_INIT: 3
+NN_BUDGET: 100</pre>
+with
+                <pre>
+REID_CKPT: "DEEPSORT_NEW_CHECKPOINT_FILE_PATH.t7"</pre>
+                </p>
                    
-                   <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                   <br>
-                   <br>
-                   Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                   <br>
-                   Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                   
-                   <p>Lorem ipsum dolor sit amet.
-                      <br id="moreinfo">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-                   
+                   <p>
+                    You can also fine-tune the other tracker parameters to achieve satisfactory results.
+                   </p>
+                   <p>
+                Before inference, you also need to change several lines of code inside the DeepSORT-YOLOv7 Reidentification notebook. Change the
+                <pre>
+!python detect_track.py --weights trainingyolov7/bestv7.pt  --img 640  --source testing/test7split.mp4</pre>
+                    with
+                <pre>
+!python detect_track.py --weights NEW_YOLOV7_WEIGHT_PATH.pt  --img 640  --source NEW_VIDEO_INFERENCE.videoformat</pre>
+            </p>    
+            
+            </p>
+                   <h2 id="inferreid">Reidentification Inference</h2>
+
+<p>After running the code snippet,
+<pre>
+!python detect_track.py --weights NEW_YOLOV7_WEIGHT_PATH.pt  --img 640  --source NEW_VIDEO_INFERENCE.videoformat</pre>
+You will obtain the inference result inside the yolov7/runs/detect directory. <br><br>
+<img class="img-full" src="pict/flirbnw1.gif" alt="">
+</p>
+
                 <div class="divider" style="width:24%; margin:30px 0;"></div>
 
-                <h1>More Info</h1>
+                <h1 id="references">References</h1>
 
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.marks are protected by intellectual property rights.</p>
+                <p>
+                    <ul>
+                        <li>
+                            Conda Documentation, "Conda User Guide," Conda, <a href="https://docs.conda.io/projects/conda/en/latest/user-guide/install/" target="_blank">[Online]</a>. Available: Accessed: Dec. 15, 2023.
+                        </li>
+                        <li>
+                            Chronomustard, "YOLOv7-DeepSORT-Thermal Environment," GitHub, <a href="https://github.com/chronomustard/YOLOv7-DeepSORT-Thermal/tree/main/env" target="_blank">[Online]</a>. Available: Accessed: Dec. 8, 2023.
+                        </li>
+                        <li>
+                            NVIDIA Corporation, "CUDA Installation Guide for Microsoft Windows," NVIDIA, <a href="https://docs.nvidia.com/cuda/cuda-installation-guide-microsoft-windows/index.html" target="_blank">[Online]</a>. Available: Accessed: Dec. 21, 2023.
+                        </li>
+                        <li>
+                            NVIDIA Corporation, "CUDA Installation Guide for Linux," NVIDIA, <a href="https://docs.nvidia.com/cuda/cuda-installation-guide-linux/index.html" target="_blank">[Online]</a>. Available: Accessed: Dec. 12, 2023.
+                        </li>
+                        <li>
+                            PyTorch, "Get Started with PyTorch - Previous Versions," PyTorch, <a href="https://pytorch.org/get-started/previous-versions/" target="_blank">[Online]</a>. Available: Accessed: Dec. 5, 2023.
+                        </li>
+                        <li>
+                            Roboflow, "YOLOv7 Custom Dataset Training Tutorial," Roboflow Blog, <a href="https://blog.roboflow.com/yolov7-custom-dataset-training-tutorial/" target="_blank">[Online]</a>. Available: Accessed: Dec. 17, 2023.
+                        </li>
+                        <li>
+                            Chronomustard, "YOLOv7-DeepSORT-Thermal Environment," GitHub, <a href="https://github.com/chronomustard/YOLOv7-DeepSORT-Thermal/tree/main/env" target="_blank">[Online]</a>. Available: Accessed: Dec. 3, 2023.
+                        </li>
+                        <li>
+                            LearnOpenCV, "YOLOv7 Object Detection Paper Explanation and Inference," LearnOpenCV, <a href="https://learnopencv.com/yolov7-object-detection-paper-explanation-and-inference/" target="_blank">[Online]</a>. Available: Accessed: Dec. 10, 2023.
+                        </li>
+                        <li>
+                            ZQPei, "DeepSORT PyTorch," GitHub, <a href="https://github.com/ZQPei/deep_sort_pytorch" target="_blank">[Online]</a>. Available: Accessed: Dec. 19, 2023.
+                        </li>
+                        <li>
+                            Chronomustard, "YOLOv7-DeepSORT-Thermal Environment," GitHub, <a href="https://github.com/chronomustard/YOLOv7-DeepSORT-Thermal/tree/main/env" target="_blank">[Online]</a>. Available: Accessed: Dec. 14, 2023.
+                        </li>
+                        <li>
+                            J. Zheng et al., "Scalable Person Re-Identification: A Benchmark," in IEEE International Conference on Computer Vision (ICCV), 2015, pp. 1116-1124. DOI: 10.1109/ICCV.2015.128. <a href="https://openaccess.thecvf.com/content_iccv_2015/html/Zheng_Scalable_Person_Re-Identification_ICCV_2015_paper.html" target="_blank">[Online]</a>. Available: Accessed: Dec. 7, 2023.
+                        </li>
+                        <li>
+                            Whurobin, "Market-1501 Dataset," Kaggle, <a href="https://www.kaggle.com/datasets/whurobin/market-1501" target="_blank">[Online]</a>. Available: Accessed: Dec. 22, 2023.
+                        </li>
+                        <li>
+                            Chronomustard, "YOLOv7-DeepSORT-Thermal Preprocessing Scripts," GitHub, <a href="https://github.com/chronomustard/YOLOv7-DeepSORT-Thermal/tree/main/deepSORT_preprocessing_script" target="_blank">[Online]</a>. Available: Accessed: Dec. 11, 2023.
+                        </li>
+                        <li>
+                            Chronomustard, "YOLOv7-DeepSORT-Thermal," GitHub, <a href="https://github.com/chronomustard/YOLOv7-DeepSORT-Thermal/tree/main" target="_blank">[Online]</a>. Available: Accessed: Dec. 16, 2023.
+                        </li>
+                    </ul>
+                    
+                </p>
 
                 <div class="doublespace"></div>
                 <div class="divider" style="width:24%; margin:30px 0;"></div>
