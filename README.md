@@ -1,5 +1,7 @@
 # YOLOv7 DeepSORT ReId
 
+![flirbnw1](https://github.com/chronomustard/YOLOv7-DeepSORT-Thermal/assets/70846916/41991daf-637a-4afc-9350-f127e574e55e)
+
 This GitHub repository provides documentation and resources for developers looking to integrate YOLOv7 and DeepSORT for Reidentification tasks, specifically tailored for thermal datasets. The repository includes pretrained weights for a thermal reidentification dataset based on market-1501.
 
 ## Features
