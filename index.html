@@ -121,10 +121,10 @@
 
                 <h2>Datasets and Pretrained Weights</h2>
                 
-                  <p>A market1501-based custom dataset compiled from ThermalDB, RegDB, Market1501, and my own IndoThermal is used on this project. The pretrained weights can be accessed from this <a href="">url</a>.
+                  <p>A market-1501-based custom dataset compiled from ThermalDB, RegDB, market-1501, and my own IndoThermal is used on this project. The pretrained weights can be accessed from this <a href="">url</a>.
                 <br><br>
-                The weights are pre-trained in market1501-based COCO dataset format and 
-                then fine-tuned to a market1501-based custom thermal dataset with 9360 pictures and 751 classes.
+                The weights are pre-trained in market-1501-based COCO dataset format and 
+                then fine-tuned to a market-1501-based custom thermal dataset with 9360 pictures and 751 classes.
                 <br><br>
                 To train the YOLOv7, roboflow is used to ease the dataset format preprocessing required for the model, which then can be trained in Google Colab or locally. In this walktrough, Google Colab will be used to train the YOLO model.
                 <br><br>
@@ -212,7 +212,24 @@ You can also install the dependencies using the requirement.txt provided in the 
                 <h2>Dataset Setup</h2>
                 
                 <p>
-
+                    In order to train the DeepSORT model, the dataset needs to be cropped in the market-1501 format. You can refer to this <a href="https://openaccess.thecvf.com/content_iccv_2015/html/Zheng_Scalable_Person_Re-Identification_ICCV_2015_paper.html">research paper</a>
+ and this <a href="https://www.kaggle.com/datasets/whurobin/market-1501">Kaggle dataset</a>. <br><br>
+Basically, in market-1501, you create 2 folders for training and testing (no validation) 
+the DeepSORT tracker model. Notice that the number of folders inside
+the train and test folders are the same, this implies that the PyTorch DeepSORT tracker will then be trained and tested like a 
+classification-based task for each class inside the test folder.
+<br><br>
+The frames that are used to train and test DeepSORT differs from YOLO. The data to train DeepSORT are cropped by its bounding box.
+ Meanwhile, the data to train YOLO are not cropped by its bounding box. 
+ <br><br>
+ To ease the naming and data preprocessing of DeepSORT training, this project also provides some scripts to create a market-1501-based folder and crop pictures by the bounding box in the YOLO dataset format. My <a href="https://github.com/chronomustard/YOLOv7-DeepSORT-Thermal/tree/main">repo</a> can be used to access these scripts.
+ <br><br>
+ The market-1501 dataset folder formatting is as followed,
+ <br><br>
+ <img class="img-full" src="pict/deepSORTformat1.png" alt="">
+ <img class="img-full" src="pict/deepSORTformat.png" alt="">
+ <br><br>
+ <b>In the test folder, it is recommended to only put 1 picture.</b> On the other hand, in the train folder, you can put as picture as you want.
                 </p>
                 
                 
