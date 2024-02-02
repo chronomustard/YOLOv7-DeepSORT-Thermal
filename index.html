@@ -22,7 +22,7 @@
 
     <div class="navbar clear nav-top">
         <div class="row content">
-            <a href="#"><img class="logo" style="height: 47px; width:auto;" src="logo.png"></a>
+            <a target="_blank" href="#"><img class="logo" style="height: 47px; width:auto;" src="logo.png"></a>
             <a class="right" href="#"><i class="fas fa-book"></i>&nbsp; Documentation</a><br>
             <a class="right" href="mailto:rickypapudi@gmail.com" target="_blank"><i class="fas fa-paper-plane"></i>&nbsp; rickypapudi@gmail.com</a>
         </div>
@@ -111,10 +111,10 @@
                 <h2 id="tfpytorch">Configuring Tensorflow and PyTorch</h2>
                 
                 <p>To allow the use of Tensorflow and PyTorch, respective CUDA and Cudatoolkit is required. 
-                    Please refer to these respective guides for <a href="https://docs.nvidia.com/cuda/cuda-installation-guide-microsoft-windows/index.html">CUDA (Windows)</a>
-                    , <a href="https://docs.nvidia.com/cuda/cuda-installation-guide-linux/index.html">CUDA (Linux)</a>, <a href="https://pytorch.org/get-started/previous-versions/ ">
+                    Please refer to these respective guides for <a target="_blank" href="https://docs.nvidia.com/cuda/cuda-installation-guide-microsoft-windows/index.html">CUDA (Windows)</a>
+                    , <a target="_blank" href="https://docs.nvidia.com/cuda/cuda-installation-guide-linux/index.html">CUDA (Linux)</a>, <a target="_blank" href="https://pytorch.org/get-started/previous-versions/ ">
                         Tensorflow
-                    </a>, and <a href="https://pytorch.org/get-started/previous-versions/ ">Pytorch</a>. 
+                    </a>, and <a target="_blank" href="https://pytorch.org/get-started/previous-versions/ ">Pytorch</a>. 
                     <br><br>For reference, in 
                     this project, I used tensorflow 1.15, pytorch 1.13+cu116 with torchaudio and torchvision. 
                     Please also make sure that the environment variables are correctly configured.</p>
@@ -122,7 +122,7 @@
 
                 <h2 id="datasets">Datasets and Pretrained Weights</h2>
                 
-                  <p>A market-1501-based custom dataset compiled from ThermalDB, RegDB, market-1501, and my own IndoThermal is used on this project. The pretrained weights can be accessed from this <a href="https://drive.google.com/drive/u/0/folders/1Y8fbH3_PX6W4KqbWyncSgPbwylYOVAFs">url</a>.
+                  <p>A market-1501-based custom dataset compiled from ThermalDB, RegDB, market-1501, and my own IndoThermal is used on this project. The pretrained weights can be accessed from this <a target="_blank" href="https://drive.google.com/drive/u/0/folders/1Y8fbH3_PX6W4KqbWyncSgPbwylYOVAFs">url</a>.
                 <br><br>
                 The weights are pre-trained in market-1501-based COCO dataset format and 
                 then fine-tuned to a market-1501-based custom thermal dataset with 9360 pictures and 751 classes.
@@ -141,8 +141,8 @@
                 <h2 id="trainyolo">Training on custom dataset</h2>
                 
                 <p>These <a target="_blank" href="https://blog.roboflow.com/yolov7-custom-dataset-training-tutorial/">guides</a> can be used to train YOLOv7 with custom dataset
-                . To simplify, you can use this <a href="">notebook</a> in my repo for training YOLO. For this project,
-                I used <a href="https://roboflow.com/">roboflow</a> to simplify image annotation and deployment to 
+                . To simplify, you can use this <a target="_blank" href="">notebook</a> in my repo for training YOLO. For this project,
+                I used <a target="_blank" href="https://roboflow.com/">roboflow</a> to simplify image annotation and deployment to 
                 google colab for training. <br><br>
                 Note that for training the model in the given notebook, you will need to change this part of the code,
                 
@@ -153,7 +153,7 @@ from roboflow import Roboflow
 rf = Roboflow(api_key="your api key")
 project = rf.workspace("your workspace").project("your project")
 dataset = project.version("your version").download("your project")</pre><br>
-                with your given code snippet in your <a href="https://roboflow.com/">roboflow</a> project
+                with your given code snippet in your <a target="_blank" href="https://roboflow.com/">roboflow</a> project
                 </p>
                 
                 <h2 id="evalyolo">Training Evaluation</h2>
@@ -169,7 +169,7 @@ dataset = project.version("your version").download("your project")</pre><br>
                 <h2 id="standaloneyolo">Standalone Testing and Inference</h2>
                 
                 <p>
-                  If you want to do standalone image detection, this <a href="https://learnopencv.com/yolov7-object-detection-paper-explanation-and-inference/">guide</a> can be used to test the standalone image detection algorithm of YOLO.
+                  If you want to do standalone image detection, this <a target="_blank" href="https://learnopencv.com/yolov7-object-detection-paper-explanation-and-inference/">guide</a> can be used to test the standalone image detection algorithm of YOLO.
                 But, in order to do object reidentification, a tracker algorithm with identification support is needed. This concludes to the use of DeepSORT for later inference.
                 </p>
                 
@@ -193,7 +193,7 @@ dataset = project.version("your version").download("your project")</pre><br>
                 <h1 id="deepsort">DeepSORT Weight Custom Dataset Transfer Learning</h1>
 
                 <p>
-                    For the tracker, this project uses the DeepSORT model with PyTorch. It is based on this <a href="https://github.com/ZQPei/deep_sort_pytorch">repo</a> by <a href="https://github.com/ZQPei">ZQPei</a>.
+                    For the tracker, this project uses the DeepSORT model with PyTorch. It is based on this <a target="_blank" href="https://github.com/ZQPei/deep_sort_pytorch">repo</a> by <a target="_blank" href="https://github.com/ZQPei">ZQPei</a>.
                 </p>
                 
                 <h2 id="setupdeepsort">Environment Setup</h2>
@@ -205,15 +205,15 @@ dataset = project.version("your version").download("your project")</pre><br>
 conda env create -f env-torch1131.yml</pre>
 <br>
 This will create an environment with the name torch1131 in your conda virtual environment. This conda yml file already includes tensorflow, pytorch, and other related dependencies for training the DeepSORT tracker. <br><br>
-You can also install the dependencies using pip from the requirement.txt provided in the <a href="https://github.com/chronomustard/YOLOv7-DeepSORT-Thermal/tree/main">Github</a> repo.
+You can also install the dependencies using pip from the requirement.txt provided in the <a target="_blank" href="https://github.com/chronomustard/YOLOv7-DeepSORT-Thermal/tree/main">Github</a> repo.
                 </p>
                    
                 
                 <h2 id="datasetdeepsort">Dataset Setup</h2>
                 
                 <p>
-                    In order to train the DeepSORT model, the dataset needs to be cropped in the market-1501 format. You can refer to this <a href="https://openaccess.thecvf.com/content_iccv_2015/html/Zheng_Scalable_Person_Re-Identification_ICCV_2015_paper.html">research paper</a>
- and this <a href="https://www.kaggle.com/datasets/whurobin/market-1501">Kaggle dataset</a>. <br><br>
+                    In order to train the DeepSORT model, the dataset needs to be cropped in the market-1501 format. You can refer to this <a target="_blank" href="https://openaccess.thecvf.com/content_iccv_2015/html/Zheng_Scalable_Person_Re-Identification_ICCV_2015_paper.html">research paper</a>
+ and this <a target="_blank" href="https://www.kaggle.com/datasets/whurobin/market-1501">Kaggle dataset</a>. <br><br>
 Basically, in market-1501, you create 2 folders for training and testing (no validation) 
 the DeepSORT tracker model. Notice that the number of folders inside
 the train and test folders are the same, this implies that the PyTorch DeepSORT tracker will then be trained and tested like a 
@@ -229,7 +229,7 @@ The frames that are used to train and test DeepSORT differs from YOLO. The data 
  <br><br>
  <b>In the test folder, it is recommended to only put 1 picture.</b> On the other hand, in the train folder, you can put as picture as you want.
 <br><br>
-To ease the naming and data preprocessing of DeepSORT training, this project also provides some scripts to create a market-1501-based folder and crop pictures by the bounding box in the YOLO dataset format. My <a href="https://github.com/chronomustard/YOLOv7-DeepSORT-Thermal/tree/main/deepSORT_preprocessing_script">repo</a> can be used to access these scripts.
+To ease the naming and data preprocessing of DeepSORT training, this project also provides some scripts to create a market-1501-based folder and crop pictures by the bounding box in the YOLO dataset format. My <a target="_blank" href="https://github.com/chronomustard/YOLOv7-DeepSORT-Thermal/tree/main/deepSORT_preprocessing_script">repo</a> can be used to access these scripts.
 The steps to format the dataset for training DeepSORT using the scripts provided is as followed,
 <ol>
    <li>If you wnat to convert the dataset from YOLO picture format to DeepSORT picture format, use the YOLOtoDeepSORTcropper.py script.</li>
@@ -276,7 +276,7 @@ train.py --data-dir="MARKET-1501-BASED DATASET"</pre>
                    <h1 id="reid">DeepSORT-YOLOv7 Reidentification</h1>
                    <h2 id="configreid">DeepSORT-YOLOv7 ReId Configuration</h2>
                    <p>
-                    The DeepSORT-YOLOv7 reidentification program is provided <a href="">here</a>. But, in order to run the algorithm, you need access and download this <a href="https://drive.google.com/drive/folders/1lbdhDOpZ3475eekVQ2q2e7rsli2dffll?usp=sharing">folder</a>.
+                    The DeepSORT-YOLOv7 reidentification program is provided <a target="_blank" href="">here</a>. But, in order to run the algorithm, you need access and download this <a target="_blank" href="https://drive.google.com/drive/folders/1lbdhDOpZ3475eekVQ2q2e7rsli2dffll?usp=sharing">folder</a>.
                     For the sake of simplification, you can open the program via Google Colab, upload the folder to your Google Drive, and connect your Google Colab to Google Drive.
                 <br><br>
                 You also need to configure the DeepSORT checkpoint folder and DeepSORT config yaml file inside the DeepSORT-YOLOv7 Reidentification folder that we downloaded.
@@ -328,46 +328,46 @@ You will obtain the inference result inside the yolov7/runs/detect directory. <b
                 <p>
                     <ul>
                         <li>
-                            Conda Documentation, "Conda User Guide," Conda, <a href="https://docs.conda.io/projects/conda/en/latest/user-guide/install/" target="_blank">[Online]</a>. Available: Accessed: Dec. 15, 2023.
+                            Conda Documentation, "Conda User Guide," Conda, <a target="_blank" href="https://docs.conda.io/projects/conda/en/latest/user-guide/install/" target="_blank">[Online]</a>. Available: Accessed: Dec. 15, 2023.
                         </li>
                         <li>
-                            Chronomustard, "YOLOv7-DeepSORT-Thermal Environment," GitHub, <a href="https://github.com/chronomustard/YOLOv7-DeepSORT-Thermal/tree/main/env" target="_blank">[Online]</a>. Available: Accessed: Dec. 8, 2023.
+                            Chronomustard, "YOLOv7-DeepSORT-Thermal Environment," GitHub, <a target="_blank" href="https://github.com/chronomustard/YOLOv7-DeepSORT-Thermal/tree/main/env" target="_blank">[Online]</a>. Available: Accessed: Dec. 8, 2023.
                         </li>
                         <li>
-                            NVIDIA Corporation, "CUDA Installation Guide for Microsoft Windows," NVIDIA, <a href="https://docs.nvidia.com/cuda/cuda-installation-guide-microsoft-windows/index.html" target="_blank">[Online]</a>. Available: Accessed: Dec. 21, 2023.
+                            NVIDIA Corporation, "CUDA Installation Guide for Microsoft Windows," NVIDIA, <a target="_blank" href="https://docs.nvidia.com/cuda/cuda-installation-guide-microsoft-windows/index.html" target="_blank">[Online]</a>. Available: Accessed: Dec. 21, 2023.
                         </li>
                         <li>
-                            NVIDIA Corporation, "CUDA Installation Guide for Linux," NVIDIA, <a href="https://docs.nvidia.com/cuda/cuda-installation-guide-linux/index.html" target="_blank">[Online]</a>. Available: Accessed: Dec. 12, 2023.
+                            NVIDIA Corporation, "CUDA Installation Guide for Linux," NVIDIA, <a target="_blank" href="https://docs.nvidia.com/cuda/cuda-installation-guide-linux/index.html" target="_blank">[Online]</a>. Available: Accessed: Dec. 12, 2023.
                         </li>
                         <li>
-                            PyTorch, "Get Started with PyTorch - Previous Versions," PyTorch, <a href="https://pytorch.org/get-started/previous-versions/" target="_blank">[Online]</a>. Available: Accessed: Dec. 5, 2023.
+                            PyTorch, "Get Started with PyTorch - Previous Versions," PyTorch, <a target="_blank" href="https://pytorch.org/get-started/previous-versions/" target="_blank">[Online]</a>. Available: Accessed: Dec. 5, 2023.
                         </li>
                         <li>
-                            Roboflow, "YOLOv7 Custom Dataset Training Tutorial," Roboflow Blog, <a href="https://blog.roboflow.com/yolov7-custom-dataset-training-tutorial/" target="_blank">[Online]</a>. Available: Accessed: Dec. 17, 2023.
+                            Roboflow, "YOLOv7 Custom Dataset Training Tutorial," Roboflow Blog, <a target="_blank" href="https://blog.roboflow.com/yolov7-custom-dataset-training-tutorial/" target="_blank">[Online]</a>. Available: Accessed: Dec. 17, 2023.
                         </li>
                         <li>
-                            Chronomustard, "YOLOv7-DeepSORT-Thermal Environment," GitHub, <a href="https://github.com/chronomustard/YOLOv7-DeepSORT-Thermal/tree/main/env" target="_blank">[Online]</a>. Available: Accessed: Dec. 3, 2023.
+                            Chronomustard, "YOLOv7-DeepSORT-Thermal Environment," GitHub, <a target="_blank" href="https://github.com/chronomustard/YOLOv7-DeepSORT-Thermal/tree/main/env" target="_blank">[Online]</a>. Available: Accessed: Dec. 3, 2023.
                         </li>
                         <li>
-                            LearnOpenCV, "YOLOv7 Object Detection Paper Explanation and Inference," LearnOpenCV, <a href="https://learnopencv.com/yolov7-object-detection-paper-explanation-and-inference/" target="_blank">[Online]</a>. Available: Accessed: Dec. 10, 2023.
+                            LearnOpenCV, "YOLOv7 Object Detection Paper Explanation and Inference," LearnOpenCV, <a target="_blank" href="https://learnopencv.com/yolov7-object-detection-paper-explanation-and-inference/" target="_blank">[Online]</a>. Available: Accessed: Dec. 10, 2023.
                         </li>
                         <li>
-                            ZQPei, "DeepSORT PyTorch," GitHub, <a href="https://github.com/ZQPei/deep_sort_pytorch" target="_blank">[Online]</a>. Available: Accessed: Dec. 19, 2023.
+                            ZQPei, "DeepSORT PyTorch," GitHub, <a target="_blank" href="https://github.com/ZQPei/deep_sort_pytorch" target="_blank">[Online]</a>. Available: Accessed: Dec. 19, 2023.
                         </li>
                         <li>
-                            Chronomustard, "YOLOv7-DeepSORT-Thermal Environment," GitHub, <a href="https://github.com/chronomustard/YOLOv7-DeepSORT-Thermal/tree/main/env" target="_blank">[Online]</a>. Available: Accessed: Dec. 14, 2023.
+                            Chronomustard, "YOLOv7-DeepSORT-Thermal Environment," GitHub, <a target="_blank" href="https://github.com/chronomustard/YOLOv7-DeepSORT-Thermal/tree/main/env" target="_blank">[Online]</a>. Available: Accessed: Dec. 14, 2023.
                         </li>
                         <li>
-                            J. Zheng et al., "Scalable Person Re-Identification: A Benchmark," in IEEE International Conference on Computer Vision (ICCV), 2015, pp. 1116-1124. DOI: 10.1109/ICCV.2015.128. <a href="https://openaccess.thecvf.com/content_iccv_2015/html/Zheng_Scalable_Person_Re-Identification_ICCV_2015_paper.html" target="_blank">[Online]</a>. Available: Accessed: Dec. 7, 2023.
+                            J. Zheng et al., "Scalable Person Re-Identification: A Benchmark," in IEEE International Conference on Computer Vision (ICCV), 2015, pp. 1116-1124. DOI: 10.1109/ICCV.2015.128. <a target="_blank" href="https://openaccess.thecvf.com/content_iccv_2015/html/Zheng_Scalable_Person_Re-Identification_ICCV_2015_paper.html" target="_blank">[Online]</a>. Available: Accessed: Dec. 7, 2023.
                         </li>
                         <li>
-                            Whurobin, "Market-1501 Dataset," Kaggle, <a href="https://www.kaggle.com/datasets/whurobin/market-1501" target="_blank">[Online]</a>. Available: Accessed: Dec. 22, 2023.
+                            Whurobin, "Market-1501 Dataset," Kaggle, <a target="_blank" href="https://www.kaggle.com/datasets/whurobin/market-1501" target="_blank">[Online]</a>. Available: Accessed: Dec. 22, 2023.
                         </li>
                         <li>
-                            Chronomustard, "YOLOv7-DeepSORT-Thermal Preprocessing Scripts," GitHub, <a href="https://github.com/chronomustard/YOLOv7-DeepSORT-Thermal/tree/main/deepSORT_preprocessing_script" target="_blank">[Online]</a>. Available: Accessed: Dec. 11, 2023.
+                            Chronomustard, "YOLOv7-DeepSORT-Thermal Preprocessing Scripts," GitHub, <a target="_blank" href="https://github.com/chronomustard/YOLOv7-DeepSORT-Thermal/tree/main/deepSORT_preprocessing_script" target="_blank">[Online]</a>. Available: Accessed: Dec. 11, 2023.
                         </li>
                         <li>
-                            Chronomustard, "YOLOv7-DeepSORT-Thermal," GitHub, <a href="https://github.com/chronomustard/YOLOv7-DeepSORT-Thermal/tree/main" target="_blank">[Online]</a>. Available: Accessed: Dec. 16, 2023.
+                            Chronomustard, "YOLOv7-DeepSORT-Thermal," GitHub, <a target="_blank" href="https://github.com/chronomustard/YOLOv7-DeepSORT-Thermal/tree/main" target="_blank">[Online]</a>. Available: Accessed: Dec. 16, 2023.
                         </li>
                     </ul>
                     
