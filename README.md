@@ -22,6 +22,10 @@ This GitHub repository provides documentation and resources for developers looki
 2. Follow the detailed documentation for setting up the environment, installing dependencies, and configuring YOLOv7 and DeepSORT.
 3. Access pretrained weights and run reidentification algorithms as per the provided guidelines.
 
+## Issues
+
+Open and create issues if you've encountered any. I'll try my best to resolve your issue asap.
+
 ## References
 
 - [Conda Documentation](https://docs.conda.io/projects/conda/en/latest/user-guide/install/)
